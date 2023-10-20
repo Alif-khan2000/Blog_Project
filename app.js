@@ -5,6 +5,9 @@ const hbs = require('hbs')
 const user = require('./routes/user')
 const admin = require('./routes/admin')
 
+const connectDB = require('./config/dbconfig');
+connectDB();
+
 
 app.set('view engine',"hbs")
 app.set('views',path.join(__dirname,'pages'))
@@ -20,7 +23,4 @@ app.use('/admin', admin)
 
 
 
-app.listen(3000,()=>
-{
-    console.log('server is running at port 3000')
-})
+app.listen(3000)
